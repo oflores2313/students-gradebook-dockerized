@@ -1,0 +1,91 @@
+<!-- <ng-container *ngIf='students$'> -->
+<div *ngIf="students$">
+  <core-search-students
+    [columns]="['first', 'last', 'email']"
+    (filteredRows)="onFilteredData($event)"
+    [allRows]="students"
+  ></core-search-students>
+
+  <ngx-datatable
+    #table
+    class="bootstrap students-data-table"
+    [rows]="students"
+    [columns]="columnSettings"
+    [columnMode]="'flex'"
+    [rowHeight]="'auto'"
+    rowHeight="'auto'"
+    [footerHeight]="50"
+  >
+    <ng-template #tagsT let-column="column">
+      <div class="columnData">{{ column.prop }}</div>
+    </ng-template>
+  </ngx-datatable>
+</div>
+
+<ng-template #detailsT let-value="value" let-row="row">
+  <button
+    type="button"
+    class="btn btn-info"
+    (click)="getStudentInfo(content, row)"
+  >
+    View Student Details
+  </button>
+</ng-template>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      {{ firstName }} {{ lastName }}
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="d('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        <span><strong>Email: </strong> {{ email }} </span>
+      </div>
+      <div class="col">
+        <span><strong>GPA: </strong>{{ avgGPA }} </span>
+      </div>
+    </div>
+    <br />
+
+    <div class="row">
+      <div class="col">
+        <span><strong>Classes </strong></span>
+      </div>
+      <div class="col">
+        <span><strong>Grade</strong></span>
+      </div>
+    </div>
+    <ng-container *ngFor="let class of classList">
+      <div class="row">
+        <div class="col">
+          <span>{{ class.className }} </span>
+        </div>
+
+        <div class="col">
+          <span> {{ class.grade }} </span>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="c('Save click')"
+    >
+      Close
+    </button>
+  </div>
+</ng-template>

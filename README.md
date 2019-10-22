@@ -6,22 +6,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+In order to be able to run this, you will need to open the students-api project and run `npm install` followed by `npm start` . That will open the project on `http://localhost:3001/`
 
-## Build
+Once that is running, you can run `npm install` followed by `npm start` on this project (students)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## About the project
 
-## Running unit tests
+This application reads in a a list of users from the API and displays them for the user. The user can then select on `View Student Details` to see additional information of the student.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Search functionality is available. However, this is an open bug on this (which if you delete from the search, the data does not re-populate and instead stays the same)
 
-## Running end-to-end tests
+All of the data and manipulation of the data is done in the store, via selectors.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+For Further information, please reach out to Oscar @ oflores2313@gmail.com
