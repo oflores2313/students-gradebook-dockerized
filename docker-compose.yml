@@ -1,0 +1,27 @@
+version: "3.7"
+networks: 
+  students-net:
+services: 
+  api:
+    networks:
+      students-net:
+        aliases:
+          - students.otus.com
+    ports:
+      - 3001:3001
+    build: 
+      context: ./
+      dockerfile: routes/Dockerfile
+  app:
+    networks: 
+      students-net:
+    ports: 
+      - 4200:4200
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: students-app
+    depends_on: 
+      - api
+ 
+    

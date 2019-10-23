@@ -1,18 +1,27 @@
-# Students
+# Students - Dockerizerd
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
 ## Getting Started
 
-In order to be able to run this, you will need to open the students-api project and run `npm install` followed by `npm start` . That will open the project on `http://localhost:3001/`
+In order to be able to run this, you will need to have docker installed locally on your machine
 
-Once that is running, you can run `npm install` followed by `npm start` on this project (students)
+Once installed, run:
+```bash
+docker-compose up --build
+```
+
+This will build the project and then the STUDENTS-API will be available on `http://localhost:3001/` & the STUDENTS-APP will be available on `http://localhost:4200/`
+
 
 ## About the project
+
+This is a dockerized application that contains both the API and the APP in the same directory
+
+The <strong>API files</strong> are:
+    - routes/
+    - data/
+    - server.js
 
 This application reads in a a list of users from the API and displays them for the user. The user can then select on `View Student Details` to see additional information of the student.
 
